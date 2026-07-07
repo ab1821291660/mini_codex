@@ -51,7 +51,6 @@ class Agent:
                 result = tools.execute_tool(name, args)##===================================
                 self.history.add_tool_result(call.id, result)##========
             # for 跑完,回到 while 顶部,带着工具结果再问一次模型
-
         return "[已达到最大步数上限,提前停止。]"
 
 
