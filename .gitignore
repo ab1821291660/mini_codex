@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.git/
+.idea/
+# 测试时 agent 生成的临时文件
+fib.py
+hello*.py
+
+# 会话续聊存档(每次运行生成,不必入库)
+.mini_codex_session.json
+
+# 打包构建产物
+*.egg-info/
+build/
+dist/
