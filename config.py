@@ -17,7 +17,7 @@ API_KEY =  "sk-47496d4141ee40b9bbdeb4c6739e16cf"
 #    - 腾讯混元 / MiniMax:地址与模型名变动较多,使用前请按官网复核
 PROVIDERS = [
     # {"name": "DeepSeek",     "base_url": "https://api.deepseek.com",                          "default_model": "deepseek-chat"},
-    {"name": "DeepSeek",     "base_url": "https://api.deepseek.com",                          "default_model": "deepseek-v4-flash",  "api_key": "sk-47496d4141ee40b9bbdeb4c6739e16cf"},#deepseek-v4-pro  sk-47496d4141ee40b9bbdeb4c6739e16
+    {"name": "DeepSeek",     "base_url": "https://api.deepseek.com",                          "default_model": "deepseek-v4-flash",  "api_key": "sk-47496d4141ee40b9bbdeb4c6739e16"},#deepseek-v4-pro  sk-47496d4141ee40b9bbdeb4c6739e16
     {"name": "腾讯混元",      "base_url": "https://api.hunyuan.cloud.tencent.com/v1",          "default_model": "hunyuan-turbo"},
     {"name": "通义千问 Qwen",  "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1", "default_model": "qwen-plus"},
     {"name": "Kimi (Moonshot)", "base_url": "https://api.moonshot.cn/v1",                      "default_model": "moonshot-v1-8k"},
