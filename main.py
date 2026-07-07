@@ -8,8 +8,9 @@ import sys
 
 import config
 from coreagent.agent import Agent
-from sessionsDB.history import History
+from sessionsDB.session_db import History
 from models.llm_client import LLMClient
+from contextengineering.compression import ContextCompressor
 def _plan_reminder():
     """每次出完计划后固定提醒:现在还没动手,以及怎么退出规划模式。"""
     print(

@@ -14,6 +14,10 @@ class Agent:
         self.client = client
         self.history = history
         self.approval = ApprovalManager()##===================================
+        self.compressor = None  # set via set_compressor()##===================================
+    def set_compressor(self, compressor):
+        """Set the ContextCompressor (Chapter 14)."""
+        self.compressor = compressor
     def run(self, user_input: str, plan_mode: bool = False) -> str:
         """处理一次用户输入,返回最终的文字答案。
         plan_mode=True 时只规划不执行:让模型输出分步计划,不给它任何工具。"""
@@ -24,10 +28,11 @@ class Agent:
 
 
         for _ in range(MAX_STEPS):
-            # 每轮调模型前,历史太长就先压缩(总结式压缩 + 保留首尾)
-            if self.history.compress(##===================================
-                    self.client.summarize):##===================================
-                print("  [上下文压缩] 历史过长,已把早前对话总结成摘要。")
+            # 每轮调模型前,历史太长就先压缩(触发/策略/提示都收在 ContextCompressor 里)
+            # if self.history.compress(##===================================
+            #         self.client.summarize):##===================================
+            #         print(" [上下文压缩] 历史过长,已把早前对话总结成摘要。")
+            self.compressor.maybe_compress(self.history._messages)##===================================
 
 
             message = self.client.chat(self.history.get(),

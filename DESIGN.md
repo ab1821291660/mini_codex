@@ -119,7 +119,7 @@
 
 ## 5. History 与 context 压缩(总结式压缩 + 保留首尾)
 
-[history.py](sessionsDB/history.py) 把整个会话的 messages 列表**收口到一个地方**:所有读写都过它。
+[session_db.py](sessionsDB/session_db.py) 把整个会话的 messages 列表**收口到一个地方**:所有读写都过它。
 正因为收口了,加 context 压缩时**只动了 history.py,agent loop 只多了一行**(调一下 `compress`)——
 这验证了"好的预留让加功能不返工"。
 

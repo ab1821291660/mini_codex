@@ -8,8 +8,9 @@ import sys
 
 import config
 from coreagent.agent import Agent
-from sessionsDB.history import History
+from sessionsDB.session_db import History
 from models.llm_client import LLMClient
+from contextengineering.compression import ContextCompressor
 SYSTEM_PROMPT = (
     "你是 mini-codex,一个跑在命令行里的编程助手。"
     "你可以使用工具读文件、写文件、跑命令来完成任务。"
@@ -102,8 +103,10 @@ def main():
 
     client = LLMClient(api_key, base_url, model)
     history = History(SYSTEM_PROMPT)
+    compressor = ContextCompressor(##===================================##===================================
+        client=client, model=model)
     agent = Agent(client, history)
-
+    agent.set_compressor(compressor)
 
 
     # 续聊:工作目录下若有上次会话存档,问要不要接着聊

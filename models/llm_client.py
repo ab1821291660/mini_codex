@@ -19,23 +19,22 @@ class LLMClient:
             kwargs["tools"] = tools
         resp = self._client.chat.completions.create(**kwargs)
         return resp.choices[0].message
-
-    def summarize(self, text: str) -> str:
-        """把一段 agent 工作记录压缩成要点。供 History.compress() 注入使用。
-        独立的一次 LLM 调用,不带工具。"""
-        messages = [
-            {
-                "role": "system",
-                "content": (
-                    "你是对话摘要助手。把下面的 agent 工作记录压缩成简洁要点,"
-                    "务必保留:做过哪些操作、读/改了哪些文件(含文件名)、关键结论。"
-                    "不要编造,只总结已发生的内容。"
-                ),
-            },
-            {"role": "user", "content": text},
-        ]
-        resp = self._client.chat.completions.create(
-            model=self._model,
-            messages=messages
-        )
-        return resp.choices[0].message.content or ""
+                    # def summarize(self, text: str) -> str:
+                    #     """把一段 agent 工作记录压缩成要点。供 History.compress() 注入使用。
+                    #     独立的一次 LLM 调用,不带工具。"""
+                    #     messages = [
+                    #         {
+                    #             "role": "system",
+                    #             "content": (
+                    #                 "你是对话摘要助手。把下面的 agent 工作记录压缩成简洁要点,"
+                    #                 "务必保留:做过哪些操作、读/改了哪些文件(含文件名)、关键结论。"
+                    #                 "不要编造,只总结已发生的内容。"
+                    #             ),
+                    #         },
+                    #         {"role": "user", "content": text},
+                    #     ]
+                    #     resp = self._client.chat.completions.create(
+                    #         model=self._model,
+                    #         messages=messages
+                    #     )
+                    #     return resp.choices[0].message.content or ""
