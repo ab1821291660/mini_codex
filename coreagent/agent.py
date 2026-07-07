@@ -4,8 +4,8 @@
     -> 模型要调工具? 执行 -> 把结果塞回历史 -> 再问模型(循环)
     -> 模型给文字答案?  返回给用户,本轮结束
 """
-import tools
-from approval import ApprovalManager
+from tools import tools
+from tools.approval import ApprovalManager
 # 安全上限:防止模型陷入死循环(对标失败模式里的 "loop")
 MAX_STEPS = 15
 

@@ -16,7 +16,7 @@
 > Agent 的工作 = 把模型的"意图"变成"执行",再把执行结果变回对话,然后**再问一遍模型**,
 > 直到模型不再提工具请求、给出最终答案。
 
-这个"问 → 执行 → 回灌 → 再问"的循环,就是 agent。它在 [agent.py](agent.py)。
+这个"问 → 执行 → 回灌 → 再问"的循环,就是 agent。它在 [agent.py](coreagent/agent.py)。
 
 ---
 
@@ -54,7 +54,7 @@
 
 ## 3. 工具系统:声明 / 路由 / 执行
 
-工具有三件事要做([tools.py](tools.py)):
+工具有三件事要做([tools.py](tools/tools.py)):
 
 1. **声明**(`TOOLS_SCHEMA`)——用 OpenAI tools 格式写"说明书"给模型看。
    模型靠 `description` 决定**何时**调哪个工具。
@@ -119,7 +119,7 @@
 
 ## 5. History 与 context 压缩(总结式压缩 + 保留首尾)
 
-[history.py](history.py) 把整个会话的 messages 列表**收口到一个地方**:所有读写都过它。
+[history.py](sessionsDB/history.py) 把整个会话的 messages 列表**收口到一个地方**:所有读写都过它。
 正因为收口了,加 context 压缩时**只动了 history.py,agent loop 只多了一行**(调一下 `compress`)——
 这验证了"好的预留让加功能不返工"。
 

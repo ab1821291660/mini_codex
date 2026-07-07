@@ -6,9 +6,9 @@ import os
                 # MODEL = "glm-4.7"  # 若控制台报模型名不存在,改成 glm-4.6 或 glm-4-plus
                 # # key 从环境变量 GLM_API_KEY 读取(老的非交互方式,保留兼容;交互式启动不依赖它)
                 # API_KEY = os.environ.get("GLM_API_KEY", "")
-BASE_URL = "https://api.deepseek.com"
-MODEL = "deepseek-v4-flash"
-API_KEY =  "sk-47496d4141ee40b9bbdeb4c6739e16cf"
+# BASE_URL = "https://api.deepseek.com"
+# MODEL = "deepseek-v4-flash"
+# API_KEY =  "sk-47496d4141ee40b9bbdeb4c6739e16"
 
 # ---- provider 预设(交互式启动时供用户用数字选)----
 # 都走 OpenAI 兼容接口,区别只是 base_url 和模型名。用户选完provider、再填key、可改模型名。
@@ -39,7 +39,7 @@ KEEP_TAIL = 6   # 尾:保留最近多少条消息
 # ---- 会话续聊[同期只有一个会话] ----
 # 每轮对话后把完整历史存到工作目录下这个文件;下次启动可选择载入接着聊。
 # 只保留最近一次(同名文件覆盖写)。
-SESSION_FILE = ".mini_codex_session.json"  ##===================================
+SESSION_FILE = "./sessionsDB/mini_codex_session.json"  ##===================================
 
 
 # ---- 危险命令黑名单(第 1 层:直接拒,不问)----

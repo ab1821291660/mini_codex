@@ -7,9 +7,9 @@ import os
 import sys
 
 import config
-from agent import Agent
-from history import History
-from llm_client import LLMClient
+from coreagent.agent import Agent
+from sessionsDB.history import History
+from models.llm_client import LLMClient
 SYSTEM_PROMPT = (
     "你是 mini-codex,一个跑在命令行里的编程助手。"
     "你可以使用工具读文件、写文件、跑命令来完成任务。"

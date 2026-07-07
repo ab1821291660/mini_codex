@@ -66,7 +66,6 @@ class History:
             else:
                 other += 1
         return cjk + other // 4
-
     def compress(self, summarizer) -> bool:##传入的summarizer为方法函数
         """总结式压缩 + 保留首尾。触发并压缩了返回 True,否则 False。
         三个约束:

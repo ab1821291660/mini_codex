@@ -7,9 +7,9 @@ import os
 import sys
 
 import config
-from agent import Agent
-from history import History
-from llm_client import LLMClient
+from coreagent.agent import Agent
+from sessionsDB.history import History
+from models.llm_client import LLMClient
 def _plan_reminder():
     """每次出完计划后固定提醒:现在还没动手,以及怎么退出规划模式。"""
     print(

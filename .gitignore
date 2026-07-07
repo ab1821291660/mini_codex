@@ -10,6 +10,7 @@ hello*.py
 
 # 会话续聊存档(每次运行生成,不必入库)
 .mini_codex_session.json
+./sessionsDB/mini_codex_session.json
 
 # 打包构建产物
 *.egg-info/
