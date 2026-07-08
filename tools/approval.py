@@ -88,7 +88,7 @@ class ApprovalManager:
         print(f"\n  ⚠️  mini-codex 想要:{_describe(name, args)}")##===================================
         ans = input("     批准? [y]同意一次  [n]拒绝  [a]本类全部同意 > ").strip().lower()
         if ans == "a":
-            self._always.add(name)
+            self._always.add(name)##===================================
             return True, None
         if ans == "y":
             return True, None
