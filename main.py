@@ -110,7 +110,10 @@ def main():
 
     client = LLMClient(api_key, base_url, model)
     history = History(SYSTEM_PROMPT)
+    compressor = ContextCompressor(##===================================##===================================
+        client=client, model=model)
     agent = Agent(client, history)
+    agent.set_compressor(compressor)
     plan_mode = False  # 规划模式开关:开着时所有输入都只改计划、不动手  ##========##========
 
 
@@ -177,7 +180,7 @@ def main():
             history.save(session_path)##========
             continue
 
-        # 普通输入:规划模式里就是"继续调整计划";  否则正常执行。
+        # 普通输入:规划模式里就是"继续调整计划";  否则正常执行(默认false)。
         answer = agent.run(user_input, plan_mode=plan_mode)#默认false##===================================##===================================
         print(f"\nmini-codex > {answer}\n")
         history.save(session_path)##========
